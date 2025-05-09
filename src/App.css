@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4eaff 100%);
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -34,5 +43,71 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Animation for the app container */
+@keyframes fadeInApp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.App {
+  animation: fadeInApp 0.5s ease-in;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 1400px) {
+  .App {
+    padding: 40px;
+  }
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  .App {
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+  }
+}
+
+/* Handle iOS devices with notches */
+@supports (padding: max(0px)) {
+  .App {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+    padding-top: max(20px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 600px) {
+    .App {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
+      padding-top: max(0px, env(safe-area-inset-top));
+      padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
   }
 }
